@@ -12,6 +12,11 @@ RUN apk add --update ca-certificates \
  && apk del --purge deps \
  && rm /var/cache/apk/* \
  && rm -f /helm-${HELM_VERSION}-linux-amd64.tar.gz
+ 
+RUN apk -Uuv add groff less python py-pip \
+ && pip install awscli \
+ && apk --purge -v del py-pip \
+ && apk add make
 
 ENTRYPOINT ["helm"]
 CMD ["help"]
