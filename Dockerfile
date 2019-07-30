@@ -19,7 +19,7 @@ RUN apk -Uuv add groff less python py-pip \
  && apk add make \
  && apk add git
 
-RUN helm plugin install https://github.com/hypnoglow/helm-s3.git
+RUN mkdir /helm $$ export $HELM_HOME=/helm && helm plugin install https://github.com/hypnoglow/helm-s3.git
 
 ENTRYPOINT ["helm"]
 CMD ["help"]
