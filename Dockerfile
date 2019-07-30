@@ -16,7 +16,8 @@ RUN apk add --update ca-certificates \
 RUN apk -Uuv add groff less python py-pip \
  && pip install awscli \
  && apk --purge -v del py-pip \
- && apk add make
+ && apk add make \
+ && apk add git
 
 RUN helm plugin install https://github.com/hypnoglow/helm-s3.git
 
