@@ -3,7 +3,7 @@ FROM alpine
 MAINTAINER cnych <icnych@gmail.com>
 
 ARG HELM_VERSION="v2.10.0"
-ENV HELM_HOME /
+ENV HELM_HOME helm
 RUN apk add --update ca-certificates \
  && apk add --update -t deps wget git openssl bash \
  && wget https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz \
@@ -19,7 +19,7 @@ RUN apk -Uuv add groff less python py-pip \
  && apk add make \
  && apk add git
 
-RUN mkdir -p ${HELM_HOME} $$ export $HELM_HOME=${HELM_HOME} && helm plugin install https://github.com/hypnoglow/helm-s3.git
+RUN mkdir -p ${HELM_HOME} $$ export $HELM_HOME=/${HELM_HOME} && helm plugin install https://github.com/hypnoglow/helm-s3.git
 
 ENTRYPOINT ["helm"]
 CMD ["help"]
