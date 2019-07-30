@@ -18,5 +18,7 @@ RUN apk -Uuv add groff less python py-pip \
  && apk --purge -v del py-pip \
  && apk add make
 
+RUN helm plugin install https://github.com/hypnoglow/helm-s3.git
+
 ENTRYPOINT ["helm"]
 CMD ["help"]
