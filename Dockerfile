@@ -19,7 +19,8 @@ RUN apk -Uuv add groff less python py-pip \
  && apk add make \
  && apk add git
 
-RUN helm init --client-only --stable-repo-url https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts \
+RUN mkdir -p $HELM_HOME && cd /$HELM_HOME \ 
+ && helm init --client-only --stable-repo-url https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts \
  && helm plugin install https://github.com/hypnoglow/helm-s3.git
 
 ENTRYPOINT ["helm"]
