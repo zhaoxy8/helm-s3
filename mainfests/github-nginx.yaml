@@ -17,5 +17,5 @@ spec:
         run: github-nginx
     spec:
       containers:
-      - image: nginx
+      - image: zhaoxy8/nginx:red
         name: github-nginx
