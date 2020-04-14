@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: github-nginx
+  name: github-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: github-nginx
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: github-nginx
+    spec:
+      containers:
+      - image: nginx
+        name: github-nginx
