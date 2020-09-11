@@ -5,7 +5,7 @@ metadata:
     run: github-nginx
   name: github-nginx
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       run: github-nginx
@@ -17,5 +17,5 @@ spec:
         run: github-nginx
     spec:
       containers:
-      - image: zhaoxy8/nginx:red
+      - image: zhaoxy8/nginx:blue
         name: github-nginx
